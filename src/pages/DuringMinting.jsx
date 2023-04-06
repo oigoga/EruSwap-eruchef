@@ -35,6 +35,8 @@ const DuringMinting = () => {
     }
   }
 
+  
+
   return (
     <>
       <div className="bg-navy-blue h-full  mx-[10%] text-white font-Bakbak">
