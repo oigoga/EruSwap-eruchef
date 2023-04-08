@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-const Countdown = () => {
+const Countdown = ({ nextPageUrl }) => {
   const [days, setDays] = useState(0);
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     const interval = setInterval(() => {
       const now = new Date().getTime();
-      const countdownDate = new Date("2023-04-23").getTime();
+      const countdownDate = new Date("2023-04-15").getTime();
       const distance = countdownDate - now;
       setDays(Math.floor(distance / (1000 * 60 * 60 * 24)));
       setHours(
@@ -17,9 +20,14 @@ const Countdown = () => {
       );
       setMinutes(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
       setSeconds(Math.floor((distance % (1000 * 60)) / 1000));
+
+      if (distance <= 0) {
+        clearInterval(interval);
+        navigate(nextPageUrl);
+      }
     }, 1000);
     return () => clearInterval(interval);
-  }, []);
+  }, [navigate]);
   return (
     <>
       <div className="flex items-center justify-center gap-4 my-14">

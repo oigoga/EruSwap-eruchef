@@ -1,30 +1,56 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import { Nftimage1, Nftimage2 } from "../assets/Minting/assets";
-import Countdown from "../components/Countdown";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 const DuringMinting = () => {
-  const [days, setDays] = useState(0);
-  const [hours, setHours] = useState(0);
-  const [minutes, setMinutes] = useState(0);
-  const [seconds, setSeconds] = useState(0);
   const [number, setNumber] = useState(1);
+  
+  const Timer = ({ nextPageUrl }) => {
+    const [days, setDays] = useState(0);
+    const [hours, setHours] = useState(0);
+    const [minutes, setMinutes] = useState(0);
+    const [seconds, setSeconds] = useState(0);
+    const navigate = useNavigate();
+  
+  
+    useEffect(() => {
+      const interval = setInterval(() => {
+        const now = new Date().getTime();
+        const countdownDate = new Date("2023-04-08").getTime();
+        const distance = countdownDate - now;
+        setDays(Math.floor(distance / (1000 * 60 * 60 * 24)));
+        setHours(
+          Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+        );
+        setMinutes(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
+        setSeconds(Math.floor((distance % (1000 * 60)) / 1000));
+  
+        if (distance <= 0) {
+          clearInterval(interval);
+          navigate(nextPageUrl);
+        }
+      }, 1000);
+      return () => clearInterval(interval);
+    }, [navigate]);
+    return (
+     <>
+      <div className="flex bg-gradient-to-b from-white to-transparent  w-2/5 text-3xl font-Urbanist font-bold py-1 h-10 rounded-lg justify-center">
+              <div className="mx-2">{days}d </div>
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const now = new Date().getTime();
-      const countdownDate = new Date("2023-04-23").getTime();
-      const distance = countdownDate - now;
-      setDays(Math.floor(distance / (1000 * 60 * 60 * 24)));
-      setHours(
-        Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-      );
-      setMinutes(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
-      setSeconds(Math.floor((distance % (1000 * 60)) / 1000));
-    }, 1000);
+              <span>:</span>
+              <div className="mx-2">{hours}h</div>
+              <span>:</span>
+              <div className="mx-2">{minutes}m</div>
+              <span>:</span>
+              <div className="mx-2">{seconds}s</div>
+            </div>
+            </>
+    );
+  };
 
-    return () => clearInterval(interval);
-  }, []);
+
+  
 
   function handleIncrease() {
     setNumber(number + 1);
@@ -57,16 +83,7 @@ const DuringMinting = () => {
                 <p>JOIN OUR DISCORD</p>
               </button>
             </div>
-            <div className="flex bg-gradient-to-b from-white to-transparent  w-2/5 text-3xl font-Urbanist font-bold py-1 h-10 rounded-lg justify-center">
-              <div className="mx-2">{days}d </div>
-
-              <span>:</span>
-              <div className="mx-2">{hours}h</div>
-              <span>:</span>
-              <div className="mx-2">{minutes}m</div>
-              <span>:</span>
-              <div className="mx-2">{seconds}s</div>
-            </div>
+           <Timer nextPageUrl="/post-minting"/>
           </div>
           <div className="w-1/3">
             <img src={Nftimage1} alt="" />

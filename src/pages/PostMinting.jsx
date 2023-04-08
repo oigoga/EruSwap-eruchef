@@ -1,7 +1,67 @@
-import React from "react";
-import Countdown from "../components/Countdown";
+import React, { useState, useEffect } from "react";
 import { Nftimage1, Divider } from "../assets/Minting/assets";
+import { useNavigate } from "react-router-dom";
 const PostMinting = () => {
+
+  const Countdown = ({ nextPageUrl }) => {
+    const [days, setDays] = useState(0);
+    const [hours, setHours] = useState(0);
+    const [minutes, setMinutes] = useState(0);
+    const [seconds, setSeconds] = useState(0);
+    const navigate = useNavigate();
+  
+  
+    useEffect(() => {
+      const interval = setInterval(() => {
+        const now = new Date().getTime();
+        const countdownDate = new Date("2023-04-08").getTime();
+        const distance = countdownDate - now;
+        setDays(Math.floor(distance / (1000 * 60 * 60 * 24)));
+        setHours(
+          Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+        );
+        setMinutes(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
+        setSeconds(Math.floor((distance % (1000 * 60)) / 1000));
+  
+        if (distance <= 0) {
+          clearInterval(interval);
+          navigate(nextPageUrl);
+        }
+      }, 1000);
+      return () => clearInterval(interval);
+    }, [navigate]);
+    return (
+      <>
+        <div className="flex items-center justify-center gap-4 my-14">
+          <div className="">
+            <div className="bg-orchid bg-opacity-20 h-24 border-orchid border-2 rounded-lg w-20 flex justify-center items-center text-5xl font-bold font-Urbanist tracking-wide text-white">
+              {days}
+            </div>
+            <div className="font-Urbanist mt-2">DAYS</div>
+          </div>
+          <div className="">
+            <div className="bg-orchid bg-opacity-20 h-24 border-orchid border-2 rounded-lg w-20 flex justify-center items-center text-5xl font-bold font-Urbanist tracking-wide text-white">
+              {hours}
+            </div>
+            <div className="font-Urbanist mt-2">HOURS</div>
+          </div>
+          <div className="">
+            <div className="bg-orchid bg-opacity-20 h-24 border-orchid border-2 rounded-lg w-20 flex justify-center items-center text-5xl font-bold font-Urbanist tracking-wide text-white">
+              {minutes}
+            </div>
+            <div className="font-Urbanist mt-2">MINUTES</div>
+          </div>
+          <div className="">
+            <div className="bg-orchid bg-opacity-20 h-24 border-orchid border-2 rounded-lg w-20 flex justify-center items-center text-5xl font-bold font-Urbanist tracking-wide text-white">
+              {seconds}
+            </div>
+            <div className="font-Urbanist mt-2">SECONDS</div>
+          </div>
+        
+        </div>
+      </>
+    );
+  };
   return (
     <>
       <div className='"bg-navy-blue h-full mt-10  mx-[10%] text-white font-Bakbak"'>
@@ -61,7 +121,7 @@ const PostMinting = () => {
         <div className="flex flex-col items-center mb-24">
           <h3 className="font-Bakbak text-3xl">Upcoming Mints</h3>
           <h5 className="font-Urbanist mt-16 text-xl">Countdown ...</h5>
-          <Countdown />
+          <Countdown nextPageUrl="/"/>
           <div className="mt-4">
             <button className="bg-violet rounded-md py-2 px-10 mx-4 ">
               <p>JOIN WAITLIST</p>

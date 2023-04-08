@@ -33,7 +33,7 @@ const PreMinting = () => {
             <h2 className="font-Urbanist text-4xl tracking-wide font-bold ">
               Live Mint Starts ...
             </h2>
-            <Countdown />
+            <Countdown nextPageUrl="/minting" />
             <div className="mt-4">
               <button className="bg-violet rounded-md py-2 px-10 mx-4 ">
                 <p>JOIN WAITLIST</p>
