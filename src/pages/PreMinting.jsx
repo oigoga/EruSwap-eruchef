@@ -3,13 +3,12 @@ import Benefits from "../components/Benefits";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Button from "../components/Button";
-import { Nftheader } from "../assets/Minting/assets";
+import { Nftheader, Constellation6 } from "../assets/Minting/assets";
 import Countdown from "../components/Countdown";
 const PreMinting = () => {
   return (
     <>
       <div className="bg-navy-blue h-full text-white">
-       
         <div className="flex flex-col justify-center items-center text-center mb-40">
           <div className="font-Bakbak w-1/2 ">
             <h1 className="text-5xl mb-4 text-violet">
@@ -33,6 +32,9 @@ const PreMinting = () => {
             <h2 className="font-Urbanist text-4xl tracking-wide font-bold ">
               Live Mint Starts ...
             </h2>
+            <div className="absolute -left-2 ">
+              <img src={Constellation6} alt="" />
+            </div>
             <Countdown nextPageUrl="/minting" />
             <div className="mt-4">
               <button className="bg-violet rounded-md py-2 px-10 mx-4 ">
@@ -44,8 +46,6 @@ const PreMinting = () => {
             </div>
           </div>
         </div>
-
-       
       </div>
     </>
   );

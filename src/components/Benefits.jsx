@@ -1,15 +1,24 @@
 import React from "react";
-import { Bar, Benefit1, Benefit2, Benefit3 } from "../assets/Minting/assets";
+import { Bar, Benefit1, Benefit2, Benefit3, Constellation, Constellation2, Constellation3 } from "../assets/Minting/assets";
 import Button from "./Button";
 const Benefits = () => {
   return (
     <>
-      <div>
+      <div className="-mt-80">
+        
         <div className="">
-          <h2 className="font-Bakbak mx-[15%]  text-4xl relative z-10 top-24">
+        
+        <div className="relative left-0 z-10 top-80">
+          <img src={Constellation} alt="" />
+        </div>
+          <h2 className="font-Bakbak mx-[30%]  text-4xl relative z-10 top-24">
             Benefits
           </h2>
+          
           <img src={Bar} alt="" className="" />
+          <div className="absolute -right-4 -mt-60">
+          <img src={Constellation2} alt="" />
+        </div>
         </div>
         <div className="mx-[15%]  ">
           <div className="flex justify-between">

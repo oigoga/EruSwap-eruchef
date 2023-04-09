@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Nftimage1, Divider } from "../assets/Minting/assets";
+import { Nftimage1, Divider, Constellation6 } from "../assets/Minting/assets";
 import { useNavigate } from "react-router-dom";
 const PostMinting = () => {
 
@@ -14,7 +14,7 @@ const PostMinting = () => {
     useEffect(() => {
       const interval = setInterval(() => {
         const now = new Date().getTime();
-        const countdownDate = new Date("2023-04-08").getTime();
+        const countdownDate = new Date("2023-04-10").getTime();
         const distance = countdownDate - now;
         setDays(Math.floor(distance / (1000 * 60 * 60 * 24)));
         setHours(
@@ -121,6 +121,9 @@ const PostMinting = () => {
         <div className="flex flex-col items-center mb-24">
           <h3 className="font-Bakbak text-3xl">Upcoming Mints</h3>
           <h5 className="font-Urbanist mt-16 text-xl">Countdown ...</h5>
+          <div className="absolute -left-2 ">
+              <img src={Constellation6} alt="" />
+            </div>
           <Countdown nextPageUrl="/"/>
           <div className="mt-4">
             <button className="bg-violet rounded-md py-2 px-10 mx-4 ">

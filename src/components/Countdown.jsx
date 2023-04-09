@@ -12,7 +12,7 @@ const Countdown = ({ nextPageUrl }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       const now = new Date().getTime();
-      const countdownDate = new Date("2023-04-15").getTime();
+      const countdownDate = new Date("2023-04-09").getTime();
       const distance = countdownDate - now;
       setDays(Math.floor(distance / (1000 * 60 * 60 * 24)));
       setHours(
