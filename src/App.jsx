@@ -12,13 +12,14 @@ const App = () => {
     <>
     <div className='bg-navy-blue text-white'>
     <Navbar/>
-    <Routes>
+     {/* <Staking/>  */}
+     <Routes>
       <Route path='/' element={<PreMinting/>}/>
       <Route path='/minting' element={<DuringMinting/>}/>
       <Route path='/post-minting' element={<PostMinting/>}/>
-    </Routes>
+    </Routes>  
  
-   <Benefits/>
+  
    <Footer/>
     </div>
 

@@ -1,84 +1,47 @@
 import React from "react";
-import {
-  Eruswap,
-  Facebook,
-  Twitter,
-  Game,
-  Google,
-  Next,
-} from "../assets/General/assets";
-import { Constellation4, Constellation5, } from "../assets/Minting/assets";
+import { Eruswap, Next } from "../assets/General/assets";
+import { FaTwitter, FaDiscord, FaMedium } from "react-icons/fa";
+
 const Footer = () => {
   return (
     <>
       <hr className="text-white w-full" />
-      <div className="flex justify-around mx-[5%] mt-3 pb-20 ">
-        <div className="relative top-20 -left-20  h-1/2 w-80">
-          <img src={Constellation4} alt="" className="h-full w-full" />
-        </div>
-        <div className="w-1/5 -ml-10">
+      <div className="flex justify-between px-20 mt-3 py-10">
+        <div className="w-1/3">
           <img src={Eruswap} alt="" />
-          <p className="font-Urbanist text-left w-60 p-2 text-sm">
-            Building the future of finance and a decentralized tokenized economy
-            Democratize and bring DeFi to 3 Billion People
+          <p className="font-Urbanist text-lg text-left w-full p-2 ">
+            A cross-chain decentralized trading platform for seamless
+            cross-chain crypto swaps, for connecting fiat-to-crypto and
+            crypto-to-fiat, providing a protocol for trading and automated
+            liquidity provision for the self-made retail crypto trader in
+            emerging markets.
           </p>
-          <div className="flex">
-            <img src={Facebook} alt="" className="mx-1.5" />
-            <img src={Twitter} alt="" className="mx-1.5" />
-            <img src={Google} alt="" className="mx-1.5" />
-            <img src={Game} alt="" className="mx-1.5" />
+          <p className="font-Urbanist text-lg text-left w-full p-2 underline" >&copy; 2023 EruSwap</p>
+        </div>
+
+        <div className="w-2/3 mt-5 flex flex-col items-center text-lg">
+          <div className="flex ">
+            <h4 className="font-Bakbak mb-5">Subscribe To Our Newsletter</h4>
           </div>
-        </div>
-        <div className="w-1/6 ml-5 mt-5">
-          <ul>
-            <li className="font-Bakbak mb-3">My Account</li>
-            <li className="my-3">Authors</li>
-            <li className="my-3">Collection</li>
-            <li className="my-3">Authors Profile</li>
-            <li className="mt-3">Create Collection</li>
-          </ul>
-        </div>
-        <div className="w-1/6 mt-5">
-          <ul>
-            <li>
-              <h4 className="font-Bakbak mb-3">Resources</h4>
-            </li>
-            <li className="my-3">Help and Support</li>
-            <li className="my-3">Live Auctions</li>
-            <li className="my-3">Item Details</li>
-            <li className="mt-3">Activity</li>
-          </ul>
-        </div>
-        <div className="w-1/6 mt-5">
-          <ul>
-            <li className="mb-3">
-              <h4 className="font-Bakbak">Company</h4>
-            </li>
-            <li className="my-3">About Us</li>
-            <li className="my-3">Contact Us</li>
-            <li className="my-3">Our Blog</li>
-            <li className="mt-3">Discover</li>
-          </ul>
-        </div>
-        <div className="w-1/5 mt-5">
-          <h4 className="font-Bakbak mb-3">Subscribe To Our Newsletter</h4>
-          <p className="font-Urbanist text-left w-60 py-2 text-sm my-3">
-            Join the EruSwap family to receive information on our private and
-            good deals
-          </p>
-          <div className="flex rounded-md border-text-body border-2 w-full ">
+          <div className="flex rounded-md border-text-body border-2 w-3/5 justify-between">
             <input
               type="email"
               name="email"
-              className=" bg-transparent w-4/5 py-2"
+              className=" bg-transparent  py-2 w-4/5"
             />
             <div className="bg-violet flex justify-center p-2 rounded-md w-1/5">
               <img src={Next} alt="" />
             </div>
           </div>
-        </div>
-        <div className="relative -top-20 -right-20  h-1/2 w-80">
-          <img src={Constellation5} alt="" className="h-full w-full" />
+          <div className="flex flex-col w-full items-center my-5">
+            <h4 className="font-Bakbak -mb-2">Connect with us</h4>
+           <div className="flex justify-around w-1/3">
+           <button className="w-1/3"><FaTwitter className="w-full h-1/3"/></button>
+            <button className="w-1/3"><FaDiscord className="w-full h-1/3"/></button>
+            <button className="w-1/3"><FaMedium className="w-full h-1/3"/></button>
+           </div>
+          </div>
+
         </div>
       </div>
     </>

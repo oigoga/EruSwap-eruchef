@@ -2,7 +2,6 @@ import React from "react";
 import Benefits from "../components/Benefits";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import Button from "../components/Button";
 import { Nftheader, Constellation6 } from "../assets/Minting/assets";
 import Countdown from "../components/Countdown";
 const PreMinting = () => {
@@ -16,7 +15,7 @@ const PreMinting = () => {
             </h1>
             <p className=" mx-[15%] font-Urbanist mb-3">
               We are excited to introduce EruChef, a specially packaged NFT that
-              will enhance your trading experience on eruSwap. it is a
+              will enhance your trading experience on EruSwap. it is a
               collection of 3,000 uniquely generated NFTs. No one EruChef is the
               same.
             </p>
@@ -47,6 +46,7 @@ const PreMinting = () => {
           </div>
         </div>
       </div>
+      <Benefits/>
     </>
   );
 };

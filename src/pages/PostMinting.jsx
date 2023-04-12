@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Nftimage1, Divider, Constellation6 } from "../assets/Minting/assets";
+import Benefits from "../components/Benefits";
 import { useNavigate } from "react-router-dom";
 const PostMinting = () => {
-
   const Countdown = ({ nextPageUrl }) => {
     const [days, setDays] = useState(0);
     const [hours, setHours] = useState(0);
     const [minutes, setMinutes] = useState(0);
     const [seconds, setSeconds] = useState(0);
     const navigate = useNavigate();
-  
-  
+
     useEffect(() => {
       const interval = setInterval(() => {
         const now = new Date().getTime();
-        const countdownDate = new Date("2023-04-10").getTime();
+        const countdownDate = new Date("2023-04-12").getTime();
         const distance = countdownDate - now;
         setDays(Math.floor(distance / (1000 * 60 * 60 * 24)));
         setHours(
@@ -22,7 +21,7 @@ const PostMinting = () => {
         );
         setMinutes(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
         setSeconds(Math.floor((distance % (1000 * 60)) / 1000));
-  
+
         if (distance <= 0) {
           clearInterval(interval);
           navigate(nextPageUrl);
@@ -57,22 +56,21 @@ const PostMinting = () => {
             </div>
             <div className="font-Urbanist mt-2">SECONDS</div>
           </div>
-        
         </div>
       </>
     );
   };
   return (
     <>
-      <div className='"bg-navy-blue h-full mt-10  mx-[10%] text-white font-Bakbak"'>
+      <div className="bg-navy-blue h-full mt-10  mx-[10%] text-white font-Bakbak">
         <div className="flex justify-around mb-40 ">
           <div className="w-2/3 flex flex-col justify-center">
             <h1 className="text-5xl mb-4 text-violet">About EruChef NFT</h1>
             <p className="  font-Urbanist mb-3 w-3/4">
-              We are excited to introduce EruSwap, a specially packaged NFT pass
+              We are excited to introduce EruChef, a specially packaged NFT pass
               of benefits that will get the most out of your trading experience
-              on eruSwap. it is a collection of 3,000 uniquely generated eruSwap
-              Origin Pass. No one origin pass is the same.
+              on EruSwap. It is a collection of 3,000 uniquely generated
+              EruChefs. No one EruChef is the same.
             </p>
             <div className="my-5">
               <button className="bg-violet rounded-md py-2 px-10  ">
@@ -89,42 +87,15 @@ const PostMinting = () => {
         </div>
         <div className="flex flex-col items-center mt-10 mb-20">
           <h5 className="font-Bakbak font-bold text-3xl">MINT SESSION ENDED</h5>
-          <div className="flex font-Urbanist font-bold text-4xl mt-10">
-            <div className="flex flex-col justify-center mx-2 items-center">
-              <h3>1000+</h3>
-              <p className="font-light text-lg">views</p>
-            </div>
-            <div className="h-1/2">
-              <img src={Divider} alt="" />
-            </div>
-            <div className="flex flex-col justify-center mx-5 items-center">
-              <h3>20</h3>
-              <p className="font-light text-lg">mints</p>
-            </div>
-            <div>
-              <img src={Divider} alt="" />
-            </div>
-            <div className="flex flex-col justify-center mx-2 items-center">
-              <h3>12+</h3>
-              <p className="font-light text-lg">Free mints</p>
-            </div>
-            <div>
-              <img src={Divider} alt="" />
-            </div>
-            <div className="flex flex-col justify-center mx-2 items-center">
-              <h3>8+</h3>
-              <p className="font-light text-lg">Paid mints</p>
-            </div>
-          </div>
         </div>
 
         <div className="flex flex-col items-center mb-24">
           <h3 className="font-Bakbak text-3xl">Upcoming Mints</h3>
           <h5 className="font-Urbanist mt-16 text-xl">Countdown ...</h5>
           <div className="absolute -left-2 ">
-              <img src={Constellation6} alt="" />
-            </div>
-          <Countdown nextPageUrl="/"/>
+            <img src={Constellation6} alt="" />
+          </div>
+          <Countdown nextPageUrl="/" />
           <div className="mt-4">
             <button className="bg-violet rounded-md py-2 px-10 mx-4 ">
               <p>JOIN WAITLIST</p>
@@ -135,6 +106,7 @@ const PostMinting = () => {
           </div>
         </div>
       </div>
+      <Benefits />
     </>
   );
 };
